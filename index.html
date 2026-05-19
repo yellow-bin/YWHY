@@ -1,302 +1,824 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>PrimeTrans Logistics | US Freight Forwarding & Supply Chain</title>
-  <!-- Google Fonts & Font Awesome -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link rel="stylesheet" href="home page.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Highview Solutions | US Freight Forwarding & Logistics</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1e293b;
+            background-color: #ffffff;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* Color palette */
+        :root {
+            --primary: #0f3b6f;
+            --primary-dark: #0a2c4e;
+            --secondary: #2c7da0;
+            --accent: #e9b35f;
+            --light-bg: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-700: #334155;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-subhead {
+            text-align: center;
+            color: var(--gray-700);
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+            font-size: 1.125rem;
+        }
+
+        /* Buttons & links */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.75rem;
+            border-radius: 40px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(0px);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 0;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            text-decoration: none;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #1e293b;
+            transition: color 0.2s;
+            font-size: 1rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e6f0fa 100%);
+            padding: 5rem 0 6rem;
+        }
+
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #2d3e50;
+            margin-bottom: 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat h4 {
+            font-size: 2rem;
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        .hero-visual {
+            flex: 1;
+            background-color: rgba(44, 125, 160, 0.08);
+            border-radius: 40px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .hero-visual i {
+            font-size: 12rem;
+            color: var(--secondary);
+            opacity: 0.9;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-100);
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--gray-200);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.25rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+        }
+
+        .service-card p {
+            color: var(--gray-700);
+            margin: 1rem 0 1rem;
+        }
+
+        .learn-more {
+            color: var(--secondary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light-bg);
+            padding: 5rem 0;
+        }
+
+        .about-grid {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h2 {
+            text-align: left;
+        }
+
+        .about-text p {
+            margin-bottom: 1.25rem;
+            color: #334155;
+        }
+
+        .about-badge {
+            background: white;
+            border-radius: 24px;
+            padding: 1.5rem;
+            flex: 0.8;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .badge-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .badge-item i {
+            font-size: 1.8rem;
+            color: var(--accent);
+        }
+
+        /* Why choose us */
+        .why-us {
+            padding: 5rem 0;
+            background: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .feature i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(100deg, #f8fafc 0%, #ffffff 100%);
+            padding: 5rem 0;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+            background: white;
+            border-radius: 32px;
+            box-shadow: var(--shadow-md);
+            padding: 2.5rem;
+            border: 1px solid var(--gray-100);
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1rem;
+        }
+
+        .contact-details {
+            margin: 2rem 0;
+        }
+
+        .contact-details p {
+            margin: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-details i {
+            width: 1.75rem;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.9rem 1.2rem;
+            border: 1px solid var(--gray-200);
+            border-radius: 60px;
+            font-family: inherit;
+            transition: 0.2s;
+            background: #fff;
+        }
+
+        textarea {
+            border-radius: 28px;
+            resize: vertical;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(15, 59, 111, 0.1);
+        }
+
+        .btn-submit {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 60px;
+            padding: 0.9rem 2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-submit:hover {
+            background: var(--primary-dark);
+            transform: scale(0.98);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: #cbd5e1;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col p {
+            margin-top: 0.75rem;
+            max-width: 260px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin: 0.5rem 0;
+        }
+
+        .footer-col a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            font-size: 1.3rem;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #1e293b;
+            padding-top: 2rem;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            h2 {
+                font-size: 1.9rem;
+            }
+            .menu-icon {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 1.2rem;
+                padding: 1.5rem 0 1rem;
+                background: white;
+                margin-top: 1rem;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .navbar {
+                flex-wrap: wrap;
+            }
+            .hero-grid {
+                flex-direction: column;
+            }
+            .hero-stats {
+                justify-content: space-between;
+            }
+            .contact-wrapper {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<header>
-  <div class="container">
-    <div class="navbar">
-      <a href="#" class="logo">义乌环越<span>中国</span></a>
-      <div class="menu-icon" id="menuToggle">
-        <i class="fas fa-bars"></i>
-      </div>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</header>
-
-<main>
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <div class="hero-content">
-          <h1>Freight forwarding that <br>powers <span style="color: var(--accent);">American commerce</span></h1>
-          <p>End-to-end logistics solutions — ocean, air, road, and warehousing. We move your business forward across the USA and worldwide.</p>
-          <div class="hero-buttons">
-            <a href="#contact" class="btn btn-primary">Connect with experts <i class="fas fa-arrow-right"></i></a>
-          </div>
-          <div class="hero-stats">
-            <div class="stat"><h4>50+</h4><p>Global Partners</p></div>
-            <div class="stat"><h4>15+</h4><p>Years Expertise</p></div>
-            <div class="stat"><h4>100%</h4><p>USA Coverage</p></div>
-          </div>
-        </div>
-        <div class="hero-visual">
-          <i class="fas fa-ship"></i>
-          <i class="fas fa-truck-fast" style="margin-left: 1rem;"></i>
-          <i class="fas fa-plane" style="margin-left: 1rem;"></i>
-          <p style="margin-top: 1rem; font-weight: 500;">Seamless intermodal freight</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="services">
-    <div class="container">
-      <h2>Integrated freight solutions</h2>
-      <p class="section-subhead">Customized logistics for diverse industries — from raw materials to retail.</p>
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-boxes"></i></div>
-          <h3>Ocean Freight</h3>
-          <p>FCL & LCL, port-to-port or door-to-door across major US gateways: Long Beach, NY/NJ, Houston.</p>
-          <a href="#contact" class="learn-more">Discuss your cargo <i class="fas fa-chevron-right"></i></a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-plane"></i></div>
-          <h3>Air Freight</h3>
-          <p>Time-critical air solutions with major airline partners. Expedited customs clearance available.</p>
-          <a href="#contact" class="learn-more">Discuss your cargo <i class="fas fa-chevron-right"></i></a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-truck"></i></div>
-          <h3>Domestic Trucking</h3>
-          <p>LTL, FTL, intermodal drayage and coast-to-coast distribution with real-time visibility.</p>
-          <a href="#contact" class="learn-more">Discuss your cargo <i class="fas fa-chevron-right"></i></a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-warehouse"></i></div>
-          <h3>Warehousing & Fulfillment</h3>
-          <p>Strategic storage, inventory management, pick & pack across 8 US distribution hubs.</p>
-          <a href="#contact" class="learn-more">Discuss your cargo <i class="fas fa-chevron-right"></i></a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-passport"></i></div>
-          <h3>Customs Brokerage</h3>
-          <p>Expert classification, duty drawback, and compliance to streamline cross-border trade.</p>
-          <a href="#contact" class="learn-more">Discuss your cargo <i class="fas fa-chevron-right"></i></a>
-        </div>
-        <div class="service-card">
-          <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-          <h3>Supply Chain Consulting</h3>
-          <p>Optimize routes, consolidate freight, reduce costs with data-driven logistics strategies.</p>
-          <a href="#contact" class="learn-more">Discuss your cargo <i class="fas fa-chevron-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-text">
-          <h2>Reliable partner since 2009</h2>
-          <p>PrimeTrans Logistics was founded in Chicago with a clear mission: to simplify international freight for American businesses. Today, we operate from major logistics hubs including Los Angeles, Atlanta, Newark, and Dallas.</p>
-          <p>Our team of licensed freight forwarders, customs brokers, and supply chain specialists work together to deliver end-to-end visibility and operational excellence. We are <strong>FF+ IATA accredited</strong> and a proud member of the NCBFAA.</p>
-          <p>Whether you’re shipping automotive parts, consumer goods, or industrial machinery — our tailor-made logistics keep your supply chain fluid.</p>
-        </div>
-        <div class="about-badge">
-          <div class="badge-item"><i class="fas fa-check-circle"></i> <span>100% asset-light & scalable</span></div>
-          <div class="badge-item"><i class="fas fa-globe-americas"></i> <span>Operations in 45+ countries</span></div>
-          <div class="badge-item"><i class="fas fa-clock"></i> <span>24/7 proactive customer support</span></div>
-          <div class="badge-item"><i class="fas fa-shield-alt"></i> <span>Cargo insurance & risk management</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose Us Section -->
-  <section class="why-us">
-    <div class="container">
-      <h2>Why North American shippers choose us</h2>
-      <p class="section-subhead">A modern approach to freight forwarding combining human expertise and digital efficiency.</p>
-      <div class="features-grid">
-        <div class="feature">
-          <i class="fas fa-network-wired"></i>
-          <h3>Extensive network</h3>
-          <p>Strong relationships with steamship lines, airlines, and trucking fleets across the US.</p>
-        </div>
-        <div class="feature">
-          <i class="fas fa-chart-simple"></i>
-          <h3>Transparent process</h3>
-          <p>No hidden fees, clear milestones, and dedicated account manager for every client.</p>
-        </div>
-        <div class="feature">
-          <i class="fas fa-headset"></i>
-          <h3>Dedicated support</h3>
-          <p>Real people, fast responses. Your logistics coordinator is just a call away 24/7.</p>
-        </div>
-        <div class="feature">
-          <i class="fas fa-file-signature"></i>
-          <h3>Customs compliance</h3>
-          <p>Minimize delays with proactive documentation and classification audits.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section (without price/track forms) -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2>Let’s move your freight</h2>
-      <p class="section-subhead">Tell us about your shipping needs — our logistics specialists will reach out within 24h.</p>
-      <div class="contact-wrapper">
-        <div class="contact-info">
-          <h3>Reach out directly</h3>
-          <div class="contact-details">
-            <p><i class="fas fa-map-marker-alt"></i> 233 S Wacker Dr, Suite 4800, Chicago, IL 60606 USA</p>
-            <p><i class="fas fa-phone-alt"></i> +1 (312) 555-8900</p>
-            <p><i class="fas fa-envelope"></i> operations@primetranslogistics.com</p>
-            <p><i class="fas fa-clock"></i> Monday – Friday: 8:00 AM – 7:00 PM (CST)</p>
-          </div>
-          <div class="social-icons" style="margin-top: 1rem;">
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          </div>
-        </div>
-        <div class="contact-form">
-          <form id="demoContactForm">
-            <div class="form-group">
-              <input type="text" id="name" placeholder="Full name" required>
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <a href="#" class="logo">Highview<span>Solutions</span></a>
+                <div class="menu-icon" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
             </div>
-            <div class="form-group">
-              <input type="email" id="email" placeholder="Email address" required>
-            </div>
-            <div class="form-group">
-              <input type="text" id="phone" placeholder="Phone number (optional)">
-            </div>
-            <div class="form-group">
-              <textarea rows="4" placeholder="Tell us about your freight requirements (origin, destination, cargo type)"></textarea>
-            </div>
-            <button type="submit" class="btn-submit">Send request <i class="fas fa-paper-plane"></i></button>
-            <p style="font-size: 0.75rem; margin-top: 0.8rem;">We’ll never share your information. Request a custom logistics plan.</p>
-          </form>
         </div>
-      </div>
-    </div>
-  </section>
-</main>
+    </header>
 
-<footer>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <a href="#" class="logo" style="color: white; font-size: 1.8rem;">PrimeTrans<span style="color: var(--accent);">Logistics</span></a>
-        <p>Your strategic freight forwarder bridging US markets with global trade lanes.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#about">About us</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="#services">Ocean / Air Freight</a></li>
-          <li><a href="#services">Trucking & Drayage</a></li>
-          <li><a href="#services">Warehousing</a></li>
-          <li><a href="#services">Customs Brokerage</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="#">Terms of Service</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Cookie Policy</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="copyright">
-      <p>&copy; 2025 PrimeTrans Logistics Inc. — Licensed NVOCC & Freight Forwarder. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <h1>Freight forwarding that <br>powers <span style="color: var(--accent);">your supply chain</span></h1>
+                        <p>End-to-end logistics solutions — ocean, air, road, and warehousing. Highview Solutions moves your business forward across the USA and worldwide.</p>
+                        <div class="hero-buttons">
+                            <a href="#contact" class="btn btn-primary">Connect with experts <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="hero-stats">
+                            <div class="stat"><h4>50+</h4><p>Global Partners</p></div>
+                            <div class="stat"><h4>15+</h4><p>Years Expertise</p></div>
+                            <div class="stat"><h4>100%</h4><p>USA Coverage</p></div>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <i class="fas fa-ship"></i>
+                        <i class="fas fa-truck-fast" style="margin-left: 1rem;"></i>
+                        <i class="fas fa-plane" style="margin-left: 1rem;"></i>
+                        <p style="margin-top: 1rem; font-weight: 500;">Seamless intermodal freight</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<script>
-  // Mobile menu toggle
-  const menuToggle = document.getElementById('menuToggle');
-  const navLinks = document.getElementById('navLinks');
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Integrated freight solutions</h2>
+                <p class="section-subhead">Customized logistics for diverse industries — from raw materials to retail.</p>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-boxes"></i></div>
+                        <h3>Ocean Freight</h3>
+                        <p>FCL & LCL, port-to-port or door-to-door across major US gateways: Long Beach, NY/NJ, Houston.</p>
+                        <a href="#contact" class="learn-more">Discuss your cargo <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-plane"></i></div>
+                        <h3>Air Freight</h3>
+                        <p>Time-critical air solutions with major airline partners. Expedited customs clearance available.</p>
+                        <a href="#contact" class="learn-more">Discuss your cargo <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-truck"></i></div>
+                        <h3>Domestic Trucking</h3>
+                        <p>LTL, FTL, intermodal drayage and coast-to-coast distribution with real-time visibility.</p>
+                        <a href="#contact" class="learn-more">Discuss your cargo <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-warehouse"></i></div>
+                        <h3>Warehousing & Fulfillment</h3>
+                        <p>Strategic storage, inventory management, pick & pack across 8 US distribution hubs.</p>
+                        <a href="#contact" class="learn-more">Discuss your cargo <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-passport"></i></div>
+                        <h3>Customs Brokerage</h3>
+                        <p>Expert classification, duty drawback, and compliance to streamline cross-border trade.</p>
+                        <a href="#contact" class="learn-more">Discuss your cargo <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Supply Chain Consulting</h3>
+                        <p>Optimize routes, consolidate freight, reduce costs with data-driven logistics strategies.</p>
+                        <a href="#contact" class="learn-more">Discuss your cargo <i class="fas fa-chevron-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h2>Reliable partner since 2010</h2>
+                        <p>Highview Solutions was founded in Southern California with a clear mission: to simplify international freight for American businesses. Today, we operate from our headquarters in Fontana, CA and major logistics hubs including Los Angeles, Atlanta, Newark, and Dallas.</p>
+                        <p>Our team of licensed freight forwarders, customs brokers, and supply chain specialists work together to deliver end-to-end visibility and operational excellence. We are <strong>FF+ IATA accredited</strong> and a proud member of the NCBFAA.</p>
+                        <p>Whether you’re shipping automotive parts, consumer goods, or industrial machinery — our tailor-made logistics keep your supply chain fluid. Based in the Inland Empire, we offer unrivaled access to West Coast ports and rail ramps.</p>
+                    </div>
+                    <div class="about-badge">
+                        <div class="badge-item"><i class="fas fa-check-circle"></i> <span>100% asset-light & scalable</span></div>
+                        <div class="badge-item"><i class="fas fa-globe-americas"></i> <span>Operations in 45+ countries</span></div>
+                        <div class="badge-item"><i class="fas fa-clock"></i> <span>24/7 proactive customer support</span></div>
+                        <div class="badge-item"><i class="fas fa-shield-alt"></i> <span>Cargo insurance & risk management</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  // Close mobile menu when clicking a link (smooth scroll)
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', (e) => {
-      if (navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-      }
-      const targetId = link.getAttribute('href');
-      if (targetId && targetId !== '#') {
-        e.preventDefault();
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth' });
+        <!-- Why Choose Us Section -->
+        <section class="why-us">
+            <div class="container">
+                <h2>Why North American shippers choose us</h2>
+                <p class="section-subhead">A modern approach to freight forwarding combining human expertise and digital efficiency.</p>
+                <div class="features-grid">
+                    <div class="feature">
+                        <i class="fas fa-network-wired"></i>
+                        <h3>Extensive network</h3>
+                        <p>Strong relationships with steamship lines, airlines, and trucking fleets across the US.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-chart-simple"></i>
+                        <h3>Transparent process</h3>
+                        <p>No hidden fees, clear milestones, and dedicated account manager for every client.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-headset"></i>
+                        <h3>Dedicated support</h3>
+                        <p>Real people, fast responses. Your logistics coordinator is just a call away 24/7.</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-file-signature"></i>
+                        <h3>Customs compliance</h3>
+                        <p>Minimize delays with proactive documentation and classification audits.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section (without price/track forms) -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Let’s move your freight</h2>
+                <p class="section-subhead">Tell us about your shipping needs — our logistics specialists will reach out within 24h.</p>
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h3>Reach out directly</h3>
+                        <div class="contact-details">
+                            <p><i class="fas fa-map-marker-alt"></i> 13215 Marlay Ave, Fontana, CA 92337, USA</p>
+                            <p><i class="fas fa-phone-alt"></i> +1 (909) 555-7800</p>
+                            <p><i class="fas fa-envelope"></i> hello@highviewsolutions.com</p>
+                            <p><i class="fas fa-clock"></i> Monday – Friday: 8:00 AM – 7:00 PM (PST)</p>
+                        </div>
+                        <div class="social-icons" style="margin-top: 1rem;">
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="demoContactForm">
+                            <div class="form-group">
+                                <input type="text" id="name" placeholder="Full name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" placeholder="Email address" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="phone" placeholder="Phone number (optional)">
+                            </div>
+                            <div class="form-group">
+                                <textarea rows="4" placeholder="Tell us about your freight requirements (origin, destination, cargo type)"></textarea>
+                            </div>
+                            <button type="submit" class="btn-submit">Send request <i class="fas fa-paper-plane"></i></button>
+                            <p style="font-size: 0.75rem; margin-top: 0.8rem;">We’ll never share your information. Request a custom logistics plan.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="color: white; font-size: 1.8rem;">Highview<span style="color: var(--accent);">Solutions</span></a>
+                    <p>Your strategic freight forwarder bridging US markets with global trade lanes. Headquartered in Fontana, CA.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Ocean / Air Freight</a></li>
+                        <li><a href="#services">Trucking & Drayage</a></li>
+                        <li><a href="#services">Warehousing</a></li>
+                        <li><a href="#services">Customs Brokerage</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Highview Solutions Inc. — Licensed NVOCC & Freight Forwarder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link (smooth scroll)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+                const targetId = link.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // Hero button & learn more buttons smoothly scroll to contact
+        const contactBtn = document.querySelector('.hero-buttons .btn-primary');
+        if (contactBtn) {
+            contactBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+            });
         }
-      }
-    });
-  });
+        document.querySelectorAll('.learn-more').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
 
-  // Hero button & learn more buttons smoothly scroll to contact
-  const contactBtn = document.querySelector('.hero-buttons .btn-primary');
-  if (contactBtn) {
-    contactBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
-    });
-  }
-  document.querySelectorAll('.learn-more').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
-    });
-  });
+        // Simple contact form handling (no actual backend, just demo alert)
+        const contactForm = document.getElementById('demoContactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const nameInput = document.getElementById('name');
+                if (nameInput.value.trim() === '') {
+                    alert('Please enter your name.');
+                    return;
+                }
+                alert(`Thank you ${nameInput.value.trim()}, your request has been received. A Highview Solutions specialist will contact you within 24 hours.`);
+                contactForm.reset();
+            });
+        }
 
-  // Simple contact form handling (no actual backend, just demo alert)
-  const contactForm = document.getElementById('demoContactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const nameInput = document.getElementById('name');
-      if (nameInput.value.trim() === '') {
-        alert('Please enter your name.');
-        return;
-      }
-      alert(`Thank you ${nameInput.value.trim()}, your request has been received. Our freight specialists will contact you within 24 hours.`);
-      contactForm.reset();
-    });
-  }
-
-  // small resize handler to ensure mobile menu hides on window resizing above 768px
-  window.addEventListener('resize', function() {
-    if (window.innerWidth > 768) {
-      if (navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-      }
-    }
-  });
-</script>
+        // small resize handler to ensure mobile menu hides on window resizing above 768px
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
+            }
+        });
+    </script>
 </body>
 </html>
