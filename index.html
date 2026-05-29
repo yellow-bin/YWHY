@@ -1,824 +1,683 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Highview Solutions | US Freight Forwarding & Logistics</title>
-    <!-- Google Fonts & Font Awesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>袋袋与钥匙精品馆 | 时尚包袋 & 创意钥匙扣</title>
+    <!-- 引入 Font Awesome 6 免费图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            color: #1e293b;
-            background-color: #ffffff;
-            line-height: 1.5;
-            scroll-behavior: smooth;
+            background-color: #f9f6f0;
+            color: #2d2a24;
         }
 
-        /* Color palette */
-        :root {
-            --primary: #0f3b6f;
-            --primary-dark: #0a2c4e;
-            --secondary: #2c7da0;
-            --accent: #e9b35f;
-            --light-bg: #f8fafc;
-            --gray-100: #f1f5f9;
-            --gray-200: #e2e8f0;
-            --gray-700: #334155;
-            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
-            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
-        }
-
-        /* Container */
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Typography */
-        h1, h2, h3 {
-            font-weight: 700;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.25rem;
-        }
-
-        h2 {
-            font-size: 2.25rem;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .section-subhead {
-            text-align: center;
-            color: var(--gray-700);
-            max-width: 700px;
-            margin: 0 auto 3rem auto;
-            font-size: 1.125rem;
-        }
-
-        /* Buttons & links */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.75rem;
-            border-radius: 40px;
-            font-weight: 600;
-            transition: all 0.25s ease;
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        /* Header & Navigation */
-        header {
-            background-color: white;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03), 0 1px 2px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(0px);
-        }
-
+        /* 顶部导航栏 */
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.25rem 0;
+            padding: 1rem 5%;
+            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
             flex-wrap: wrap;
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            text-decoration: none;
-            color: var(--primary);
+            font-size: 1.7rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #b87c4f, #5e2e1c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
-
-        .logo span {
-            color: var(--accent);
+        .logo i {
+            color: #b87c4f;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
+            margin-right: 5px;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             align-items: center;
-            list-style: none;
         }
-
         .nav-links a {
             text-decoration: none;
+            color: #3e3a35;
             font-weight: 500;
-            color: #1e293b;
             transition: color 0.2s;
-            font-size: 1rem;
         }
-
         .nav-links a:hover {
-            color: var(--primary);
+            color: #b87c4f;
         }
-
-        .menu-icon {
-            display: none;
-            font-size: 1.8rem;
+        .cart-icon {
+            position: relative;
             cursor: pointer;
-            color: var(--primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e6f0fa 100%);
-            padding: 5rem 0 6rem;
-        }
-
-        .hero-grid {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-content {
-            flex: 1;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            color: #2d3e50;
-            margin-bottom: 2rem;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat h4 {
-            font-size: 2rem;
-            color: var(--primary);
-            font-weight: 800;
-        }
-
-        .hero-visual {
-            flex: 1;
-            background-color: rgba(44, 125, 160, 0.08);
-            border-radius: 40px;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .hero-visual i {
-            font-size: 12rem;
-            color: var(--secondary);
-            opacity: 0.9;
-        }
-
-        /* Services Section */
-        .services {
-            padding: 5rem 0;
-            background-color: white;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 24px;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            transition: all 0.3s;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--gray-100);
-        }
-
-        .service-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--gray-200);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1.25rem;
-        }
-
-        .service-card h3 {
             font-size: 1.5rem;
         }
-
-        .service-card p {
-            color: var(--gray-700);
-            margin: 1rem 0 1rem;
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -12px;
+            background-color: #b87c4f;
+            color: white;
+            font-size: 0.7rem;
+            font-weight: bold;
+            border-radius: 50%;
+            padding: 2px 6px;
+            min-width: 18px;
+            text-align: center;
         }
 
-        .learn-more {
-            color: var(--secondary);
+        /* 主横幅 */
+        .hero {
+            background: linear-gradient(120deg, #f3ede7, #fff1e4);
+            padding: 3rem 5%;
+            text-align: center;
+            border-bottom: 1px solid #e9e0d6;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
             font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
+            color: #4a2c1c;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            margin-top: 0.8rem;
+            color: #6b4f38;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* About Section */
-        .about {
-            background-color: var(--light-bg);
-            padding: 5rem 0;
+        /* 商品网格区 */
+        .products-section {
+            padding: 3rem 5%;
         }
-
-        .about-grid {
-            display: flex;
-            gap: 3rem;
-            align-items: center;
-            flex-wrap: wrap;
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            border-left: 5px solid #b87c4f;
+            padding-left: 1rem;
+            font-weight: 500;
         }
-
-        .about-text {
-            flex: 1;
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
         }
-
-        .about-text h2 {
-            text-align: left;
-        }
-
-        .about-text p {
-            margin-bottom: 1.25rem;
-            color: #334155;
-        }
-
-        .about-badge {
+        .product-card {
             background: white;
             border-radius: 24px;
-            padding: 1.5rem;
-            flex: 0.8;
-            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.05);
+            transition: transform 0.25s ease, box-shadow 0.3s;
+            cursor: default;
+        }
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+        }
+        .product-img {
+            width: 100%;
+            height: 260px;
+            background-color: #f5efe8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #aa7a58;
+        }
+        .product-info {
+            padding: 1.2rem 1.2rem 1.5rem;
+        }
+        .product-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+        }
+        .product-category {
+            font-size: 0.8rem;
+            color: #aa7a58;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+        }
+        .product-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #5e2e1c;
+            margin: 0.5rem 0;
+        }
+        .add-to-cart {
+            background-color: #b87c4f;
+            border: none;
+            color: white;
+            padding: 0.7rem 1rem;
+            width: 100%;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+            margin-top: 0.5rem;
+        }
+        .add-to-cart:hover {
+            background-color: #8f5e3a;
+        }
+
+        /* 购物车侧边栏 */
+        .cart-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            z-index: 1100;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        .cart-overlay.open {
+            visibility: visible;
+            opacity: 1;
+        }
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            background: white;
+            z-index: 1200;
+            box-shadow: -5px 0 20px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
             display: flex;
             flex-direction: column;
-            gap: 0.8rem;
         }
-
-        .badge-item {
+        .cart-sidebar.open {
+            right: 0;
+        }
+        .cart-header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 1rem;
-        }
-
-        .badge-item i {
-            font-size: 1.8rem;
-            color: var(--accent);
-        }
-
-        /* Why choose us */
-        .why-us {
-            padding: 5rem 0;
-            background: white;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .feature {
-            text-align: center;
             padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+            font-size: 1.3rem;
+            font-weight: 600;
         }
-
-        .feature i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
+        .close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b4f38;
         }
-
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(100deg, #f8fafc 0%, #ffffff 100%);
-            padding: 5rem 0;
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem 1.5rem;
         }
-
-        .contact-wrapper {
+        .cart-item {
             display: flex;
-            gap: 3rem;
-            flex-wrap: wrap;
-            background: white;
-            border-radius: 32px;
-            box-shadow: var(--shadow-md);
-            padding: 2.5rem;
-            border: 1px solid var(--gray-100);
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #f0e6de;
         }
-
-        .contact-info {
+        .cart-item-info {
             flex: 1;
         }
-
-        .contact-info h3 {
-            margin-bottom: 1rem;
+        .cart-item-title {
+            font-weight: 600;
         }
-
-        .contact-details {
-            margin: 2rem 0;
+        .cart-item-price {
+            font-size: 0.8rem;
+            color: #8f5e3a;
         }
-
-        .contact-details p {
-            margin: 1rem 0;
+        .cart-item-actions {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 10px;
         }
-
-        .contact-details i {
-            width: 1.75rem;
-            color: var(--primary);
+        .cart-item-actions button {
+            background-color: #f0e2d8;
+            border: none;
+            width: 26px;
+            height: 26px;
+            border-radius: 26px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.1s;
+        }
+        .cart-item-actions span {
+            min-width: 20px;
+            text-align: center;
+        }
+        .cart-footer {
+            padding: 1.5rem;
+            border-top: 1px solid #eee;
+            background: #fffaf5;
+        }
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 700;
             font-size: 1.2rem;
+            margin-bottom: 1rem;
         }
-
-        .contact-form {
-            flex: 1;
-        }
-
-        .form-group {
-            margin-bottom: 1.25rem;
-        }
-
-        input, textarea {
+        .checkout-btn {
+            background-color: #5e2e1c;
             width: 100%;
-            padding: 0.9rem 1.2rem;
-            border: 1px solid var(--gray-200);
-            border-radius: 60px;
-            font-family: inherit;
-            transition: 0.2s;
-            background: #fff;
-        }
-
-        textarea {
-            border-radius: 28px;
-            resize: vertical;
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(15, 59, 111, 0.1);
-        }
-
-        .btn-submit {
-            background: var(--primary);
+            padding: 0.8rem;
             color: white;
             border: none;
             border-radius: 60px;
-            padding: 0.9rem 2rem;
-            font-weight: 600;
+            font-size: 1rem;
+            font-weight: bold;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: 0.2s;
         }
-
-        .btn-submit:hover {
-            background: var(--primary-dark);
-            transform: scale(0.98);
+        .checkout-btn:hover {
+            background-color: #3e2418;
         }
-
-        /* Footer */
-        footer {
-            background-color: #0f172a;
-            color: #cbd5e1;
-            padding: 3rem 0 2rem;
-        }
-
-        .footer-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-col p {
-            margin-top: 0.75rem;
-            max-width: 260px;
-        }
-
-        .footer-col h4 {
-            color: white;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col li {
-            margin: 0.5rem 0;
-        }
-
-        .footer-col a {
-            color: #cbd5e1;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .footer-col a:hover {
-            color: white;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1.2rem;
-            margin-top: 1rem;
-        }
-
-        .social-icons a {
-            font-size: 1.3rem;
-        }
-
-        .copyright {
+        .empty-cart {
             text-align: center;
-            border-top: 1px solid #1e293b;
-            padding-top: 2rem;
+            color: #aa9c8e;
+            margin-top: 2rem;
+        }
+
+        /* 底部 */
+        .footer {
+            background-color: #2d2a24;
+            color: #d9cdbc;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
             font-size: 0.85rem;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1.5rem;
-            }
-            h1 {
-                font-size: 2.5rem;
-            }
-            h2 {
-                font-size: 1.9rem;
-            }
-            .menu-icon {
-                display: block;
-            }
-            .nav-links {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                gap: 1.2rem;
-                padding: 1.5rem 0 1rem;
-                background: white;
-                margin-top: 1rem;
-            }
-            .nav-links.active {
-                display: flex;
-            }
+        /* 响应式 */
+        @media (max-width: 640px) {
             .navbar {
-                flex-wrap: wrap;
-            }
-            .hero-grid {
                 flex-direction: column;
+                gap: 10px;
             }
-            .hero-stats {
-                justify-content: space-between;
+            .hero h1 {
+                font-size: 1.8rem;
             }
-            .contact-wrapper {
-                padding: 1.5rem;
+            .products-grid {
+                gap: 1rem;
             }
+        }
+        button {
+            cursor: pointer;
+        }
+        i, .fas, .far {
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="navbar">
-                <a href="#" class="logo">Highview<span>Solutions</span></a>
-                <div class="menu-icon" id="menuToggle">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
+
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <i class="fas fa-bag-shopping"></i> 袋袋与钥匙·精品馆
+        </div>
+        <div class="nav-links">
+            <a href="#">首页</a>
+            <a href="#">包袋系列</a>
+            <a href="#">钥匙扣系列</a>
+            <div class="cart-icon" id="cartIcon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-grid">
-                    <div class="hero-content">
-                        <h1>Freight forwarding that <br>powers <span style="color: var(--accent);">your supply chain</span></h1>
-                        <p>End-to-end logistics solutions — ocean, air, road, and warehousing. Highview Solutions moves your business forward across the USA and worldwide.</p>
-                        <div class="hero-buttons">
-                            <a href="#contact" class="btn btn-primary">Connect with experts <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                        <div class="hero-stats">
-                            <div class="stat"><h4>50+</h4><p>Global Partners</p></div>
-                            <div class="stat"><h4>15+</h4><p>Years Expertise</p></div>
-                            <div class="stat"><h4>100%</h4><p>USA Coverage</p></div>
-                        </div>
-                    </div>
-                    <div class="hero-visual">
-                        <i class="fas fa-ship"></i>
-                        <i class="fas fa-truck-fast" style="margin-left: 1rem;"></i>
-                        <i class="fas fa-plane" style="margin-left: 1rem;"></i>
-                        <p style="margin-top: 1rem; font-weight: 500;">Seamless intermodal freight</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<main>
+    <div class="hero">
+        <h1>每一只包袋，每一枚钥匙扣</h1>
+        <p>匠心设计 · 轻盈出行 · 精致生活<br>从通勤托特到趣味钥匙扣，发现日常美感</p>
+    </div>
 
-        <!-- Services Section -->
-        <section id="services" class="services">
-            <div class="container">
-                <h2>Integrated freight solutions</h2>
-                <p class="section-subhead">Customized logistics for diverse industries — from raw materials to retail.</p>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-boxes"></i></div>
-                        <h3>Ocean Freight</h3>
-                        <p>FCL & LCL, port-to-port or door-to-door across major US gateways: Long Beach, NY/NJ, Houston.</p>
-                        <a href="#contact" class="learn-more">Discuss your cargo <i class="fas fa-chevron-right"></i></a>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-plane"></i></div>
-                        <h3>Air Freight</h3>
-                        <p>Time-critical air solutions with major airline partners. Expedited customs clearance available.</p>
-                        <a href="#contact" class="learn-more">Discuss your cargo <i class="fas fa-chevron-right"></i></a>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-truck"></i></div>
-                        <h3>Domestic Trucking</h3>
-                        <p>LTL, FTL, intermodal drayage and coast-to-coast distribution with real-time visibility.</p>
-                        <a href="#contact" class="learn-more">Discuss your cargo <i class="fas fa-chevron-right"></i></a>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-warehouse"></i></div>
-                        <h3>Warehousing & Fulfillment</h3>
-                        <p>Strategic storage, inventory management, pick & pack across 8 US distribution hubs.</p>
-                        <a href="#contact" class="learn-more">Discuss your cargo <i class="fas fa-chevron-right"></i></a>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-passport"></i></div>
-                        <h3>Customs Brokerage</h3>
-                        <p>Expert classification, duty drawback, and compliance to streamline cross-border trade.</p>
-                        <a href="#contact" class="learn-more">Discuss your cargo <i class="fas fa-chevron-right"></i></a>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
-                        <h3>Supply Chain Consulting</h3>
-                        <p>Optimize routes, consolidate freight, reduce costs with data-driven logistics strategies.</p>
-                        <a href="#contact" class="learn-more">Discuss your cargo <i class="fas fa-chevron-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="products-section">
+        <div class="section-title">✨ 精选好物</div>
+        <div class="products-grid" id="productsGrid"></div>
+    </div>
+</main>
 
-        <!-- About Section -->
-        <section id="about" class="about">
-            <div class="container">
-                <div class="about-grid">
-                    <div class="about-text">
-                        <h2>Reliable partner since 2010</h2>
-                        <p>Highview Solutions was founded in Southern California with a clear mission: to simplify international freight for American businesses. Today, we operate from our headquarters in Fontana, CA and major logistics hubs including Los Angeles, Atlanta, Newark, and Dallas.</p>
-                        <p>Our team of licensed freight forwarders, customs brokers, and supply chain specialists work together to deliver end-to-end visibility and operational excellence. We are <strong>FF+ IATA accredited</strong> and a proud member of the NCBFAA.</p>
-                        <p>Whether you’re shipping automotive parts, consumer goods, or industrial machinery — our tailor-made logistics keep your supply chain fluid. Based in the Inland Empire, we offer unrivaled access to West Coast ports and rail ramps.</p>
-                    </div>
-                    <div class="about-badge">
-                        <div class="badge-item"><i class="fas fa-check-circle"></i> <span>100% asset-light & scalable</span></div>
-                        <div class="badge-item"><i class="fas fa-globe-americas"></i> <span>Operations in 45+ countries</span></div>
-                        <div class="badge-item"><i class="fas fa-clock"></i> <span>24/7 proactive customer support</span></div>
-                        <div class="badge-item"><i class="fas fa-shield-alt"></i> <span>Cargo insurance & risk management</span></div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<footer class="footer">
+    <p>© 2025 袋袋与钥匙精品馆 | 用心挑选每一件随身好物</p>
+    <p style="margin-top: 8px;"><i class="fas fa-key"></i> 包袋 · 钥匙扣 · 卡包 · 挂饰</p>
+</footer>
 
-        <!-- Why Choose Us Section -->
-        <section class="why-us">
-            <div class="container">
-                <h2>Why North American shippers choose us</h2>
-                <p class="section-subhead">A modern approach to freight forwarding combining human expertise and digital efficiency.</p>
-                <div class="features-grid">
-                    <div class="feature">
-                        <i class="fas fa-network-wired"></i>
-                        <h3>Extensive network</h3>
-                        <p>Strong relationships with steamship lines, airlines, and trucking fleets across the US.</p>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-chart-simple"></i>
-                        <h3>Transparent process</h3>
-                        <p>No hidden fees, clear milestones, and dedicated account manager for every client.</p>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-headset"></i>
-                        <h3>Dedicated support</h3>
-                        <p>Real people, fast responses. Your logistics coordinator is just a call away 24/7.</p>
-                    </div>
-                    <div class="feature">
-                        <i class="fas fa-file-signature"></i>
-                        <h3>Customs compliance</h3>
-                        <p>Minimize delays with proactive documentation and classification audits.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section (without price/track forms) -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2>Let’s move your freight</h2>
-                <p class="section-subhead">Tell us about your shipping needs — our logistics specialists will reach out within 24h.</p>
-                <div class="contact-wrapper">
-                    <div class="contact-info">
-                        <h3>Reach out directly</h3>
-                        <div class="contact-details">
-                            <p><i class="fas fa-map-marker-alt"></i> 13215 Marlay Ave, Fontana, CA 92337, USA</p>
-                            <p><i class="fas fa-phone-alt"></i> +1 (909) 555-7800</p>
-                            <p><i class="fas fa-envelope"></i> hello@highviewsolutions.com</p>
-                            <p><i class="fas fa-clock"></i> Monday – Friday: 8:00 AM – 7:00 PM (PST)</p>
-                        </div>
-                        <div class="social-icons" style="margin-top: 1rem;">
-                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        </div>
-                    </div>
-                    <div class="contact-form">
-                        <form id="demoContactForm">
-                            <div class="form-group">
-                                <input type="text" id="name" placeholder="Full name" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" id="email" placeholder="Email address" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="phone" placeholder="Phone number (optional)">
-                            </div>
-                            <div class="form-group">
-                                <textarea rows="4" placeholder="Tell us about your freight requirements (origin, destination, cargo type)"></textarea>
-                            </div>
-                            <button type="submit" class="btn-submit">Send request <i class="fas fa-paper-plane"></i></button>
-                            <p style="font-size: 0.75rem; margin-top: 0.8rem;">We’ll never share your information. Request a custom logistics plan.</p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <a href="#" class="logo" style="color: white; font-size: 1.8rem;">Highview<span style="color: var(--accent);">Solutions</span></a>
-                    <p>Your strategic freight forwarder bridging US markets with global trade lanes. Headquartered in Fontana, CA.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#about">About us</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <ul>
-                        <li><a href="#services">Ocean / Air Freight</a></li>
-                        <li><a href="#services">Trucking & Drayage</a></li>
-                        <li><a href="#services">Warehousing</a></li>
-                        <li><a href="#services">Customs Brokerage</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 Highview Solutions Inc. — Licensed NVOCC & Freight Forwarder. All rights reserved.</p>
-            </div>
+<!-- 购物车侧边栏 -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <span><i class="fas fa-shopping-bag"></i> 购物车</span>
+        <button class="close-cart" id="closeCartBtn">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItemsContainer">
+        <!-- 动态渲染购物车内容 -->
+        <div class="empty-cart">购物车空空如也，挑点宝贝吧~</div>
+    </div>
+    <div class="cart-footer">
+        <div class="cart-total">
+            <span>总计</span>
+            <span id="cartTotalPrice">¥0</span>
         </div>
-    </footer>
+        <button class="checkout-btn" id="checkoutBtn">去结算 <i class="fas fa-arrow-right"></i></button>
+    </div>
+</div>
 
-    <script>
-        // Mobile menu toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
+<script>
+    // ---------- 商品数据 (包和钥匙扣之类) ----------
+    const products = [
+        { id: 1, name: "复古牛皮托特包", category: "大容量包袋", price: 399, icon: "fas fa-briefcase", imgEmoji: "👜" },
+        { id: 2, name: "轻便帆布单肩包", category: "休闲包", price: 129, icon: "fas fa-shopping-bag", imgEmoji: "🎒" },
+        { id: 3, name: "法式斜挎小方包", category: "时尚包袋", price: 259, icon: "fas fa-purse", imgEmoji: "👛" },
+        { id: 4, name: "极简牛皮卡包/钥匙包", category: "钥匙包/卡包", price: 69, icon: "fas fa-credit-card", imgEmoji: "💳" },
+        { id: 5, name: "动物萌宠钥匙扣", category: "创意钥匙扣", price: 29, icon: "fas fa-paw", imgEmoji: "🐱" },
+        { id: 6, name: "金属流苏钥匙挂件", category: "钥匙扣", price: 39, icon: "fas fa-key", imgEmoji: "🔑" },
+        { id: 7, name: "拼色水桶包", category: "通勤包", price: 329, icon: "fas fa-bag-shopping", imgEmoji: "🪣" },
+        { id: 8, name: "多功能钥匙+AirTag挂绳", category: "智能钥匙扣", price: 49, icon: "fas fa-tag", imgEmoji: "🏷️" }
+    ];
 
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+    // 购物车数据结构 { id, name, price, quantity }
+    let cart = [];
 
-        // Close mobile menu when clicking a link (smooth scroll)
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', (e) => {
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                }
-                const targetId = link.getAttribute('href');
-                if (targetId && targetId !== '#') {
-                    e.preventDefault();
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }
-            });
-        });
+    // 获取DOM元素
+    const productsGrid = document.getElementById('productsGrid');
+    const cartCountSpan = document.getElementById('cartCount');
+    const cartItemsContainer = document.getElementById('cartItemsContainer');
+    const cartTotalPriceSpan = document.getElementById('cartTotalPrice');
+    const cartOverlay = document.getElementById('cartOverlay');
+    const cartSidebar = document.getElementById('cartSidebar');
+    const openCartIcon = document.getElementById('cartIcon');
+    const closeCartBtn = document.getElementById('closeCartBtn');
+    const checkoutBtn = document.getElementById('checkoutBtn');
 
-        // Hero button & learn more buttons smoothly scroll to contact
-        const contactBtn = document.querySelector('.hero-buttons .btn-primary');
-        if (contactBtn) {
-            contactBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
-            });
+    // 辅助函数：保存购物车到localStorage (可选)
+    function saveCartToLocal() {
+        localStorage.setItem('bagKeyCart', JSON.stringify(cart));
+    }
+
+    function loadCartFromLocal() {
+        const stored = localStorage.getItem('bagKeyCart');
+        if(stored) {
+            try {
+                cart = JSON.parse(stored);
+                // 保证每个项目有quantity字段，如果不合法重置
+                if(!Array.isArray(cart)) cart = [];
+                cart = cart.filter(item => item && typeof item.id === 'number' && item.quantity > 0);
+            } catch(e) { cart = []; }
+        } else {
+            cart = [];
         }
-        document.querySelectorAll('.learn-more').forEach(btn => {
+        renderCartUI();
+        updateCartCount();
+        saveCartToLocal();
+    }
+
+    // 更新顶部购物车数量
+    function updateCartCount() {
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCountSpan.innerText = totalItems;
+    }
+
+    // 计算总价
+    function computeTotal() {
+        return cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    }
+
+    // 渲染购物车侧边栏列表
+    function renderCartUI() {
+        if(!cartItemsContainer) return;
+        if(cart.length === 0) {
+            cartItemsContainer.innerHTML = `<div class="empty-cart"><i class="fas fa-store"></i> 购物车空空如也，挑点宝贝吧~</div>`;
+            cartTotalPriceSpan.innerText = `¥0`;
+            return;
+        }
+
+        let itemsHtml = '';
+        cart.forEach(item => {
+            itemsHtml += `
+                <div class="cart-item" data-id="${item.id}">
+                    <div class="cart-item-info">
+                        <div class="cart-item-title">${escapeHtml(item.name)}</div>
+                        <div class="cart-item-price">¥${item.price}</div>
+                    </div>
+                    <div class="cart-item-actions">
+                        <button class="decr-item" data-id="${item.id}">-</button>
+                        <span>${item.quantity}</span>
+                        <button class="incr-item" data-id="${item.id}">+</button>
+                        <button class="remove-item" data-id="${item.id}" style="background:transparent; width:auto; font-size:1.1rem;">🗑️</button>
+                    </div>
+                </div>
+            `;
+        });
+        cartItemsContainer.innerHTML = itemsHtml;
+        const total = computeTotal();
+        cartTotalPriceSpan.innerText = `¥${total}`;
+
+        // 绑定购物车内按钮事件
+        document.querySelectorAll('.decr-item').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+                const id = parseInt(btn.getAttribute('data-id'));
+                updateItemQuantity(id, -1);
             });
         });
+        document.querySelectorAll('.incr-item').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const id = parseInt(btn.getAttribute('data-id'));
+                updateItemQuantity(id, 1);
+            });
+        });
+        document.querySelectorAll('.remove-item').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const id = parseInt(btn.getAttribute('data-id'));
+                removeCartItem(id);
+            });
+        });
+    }
 
-        // Simple contact form handling (no actual backend, just demo alert)
-        const contactForm = document.getElementById('demoContactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                const nameInput = document.getElementById('name');
-                if (nameInput.value.trim() === '') {
-                    alert('Please enter your name.');
-                    return;
-                }
-                alert(`Thank you ${nameInput.value.trim()}, your request has been received. A Highview Solutions specialist will contact you within 24 hours.`);
-                contactForm.reset();
+    // 更新商品数量
+    function updateItemQuantity(productId, delta) {
+        const index = cart.findIndex(item => item.id === productId);
+        if(index !== -1) {
+            const newQty = cart[index].quantity + delta;
+            if(newQty <= 0) {
+                cart.splice(index,1);
+            } else {
+                cart[index].quantity = newQty;
+            }
+            renderCartUI();
+            updateCartCount();
+            saveCartToLocal();
+        } else {
+            // 理论上不存在，但兜底
+            if(delta > 0) {
+                const product = products.find(p => p.id === productId);
+                if(product) addToCart(product, 1);
+            }
+        }
+    }
+
+    function removeCartItem(productId) {
+        cart = cart.filter(item => item.id !== productId);
+        renderCartUI();
+        updateCartCount();
+        saveCartToLocal();
+    }
+
+    // 添加至购物车
+    function addToCart(product, quantity = 1) {
+        const existing = cart.find(item => item.id === product.id);
+        if(existing) {
+            existing.quantity += quantity;
+        } else {
+            cart.push({
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                quantity: quantity
             });
         }
+        renderCartUI();
+        updateCartCount();
+        saveCartToLocal();
+        // 轻提示风格 - 无侵入反馈
+        showTemporaryToast(`✨ ${product.name} 已加入购物车`);
+    }
 
-        // small resize handler to ensure mobile menu hides on window resizing above 768px
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
+    // 简单toast提醒
+    function showTemporaryToast(msg) {
+        let toast = document.createElement('div');
+        toast.innerText = msg;
+        toast.style.position = 'fixed';
+        toast.style.bottom = '20px';
+        toast.style.left = '50%';
+        toast.style.transform = 'translateX(-50%)';
+        toast.style.backgroundColor = '#5e2e1c';
+        toast.style.color = 'white';
+        toast.style.padding = '10px 20px';
+        toast.style.borderRadius = '40px';
+        toast.style.fontSize = '0.9rem';
+        toast.style.zIndex = '1300';
+        toast.style.boxShadow = '0 4px 12px rgba(0,0,0,0.2)';
+        document.body.appendChild(toast);
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            setTimeout(() => toast.remove(), 300);
+        }, 1800);
+    }
+
+    // 渲染商品卡片
+    function renderProducts() {
+        if(!productsGrid) return;
+        productsGrid.innerHTML = '';
+        products.forEach(product => {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            // 用emoji + 图标风格展示图片区域
+            card.innerHTML = `
+                <div class="product-img">
+                    <span style="font-size: 4rem; display:inline-block;">${product.imgEmoji || '🛍️'}</span>
+                    <i class="${product.icon}" style="font-size: 2.5rem; margin-left: 10px; opacity:0.7;"></i>
+                </div>
+                <div class="product-info">
+                    <div class="product-category">${escapeHtml(product.category)}</div>
+                    <div class="product-title">${escapeHtml(product.name)}</div>
+                    <div class="product-price">¥${product.price}</div>
+                    <button class="add-to-cart" data-id="${product.id}">
+                        <i class="fas fa-cart-plus"></i> 加入购物车
+                    </button>
+                </div>
+            `;
+            productsGrid.appendChild(card);
+        });
+        // 绑定所有加入购物车按钮
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const id = parseInt(btn.getAttribute('data-id'));
+                const product = products.find(p => p.id === id);
+                if(product) {
+                    addToCart(product, 1);
                 }
+            });
+        });
+    }
+
+    // 简单防XSS
+    function escapeHtml(str) {
+        return str.replace(/[&<>]/g, function(m) {
+            if(m === '&') return '&amp;';
+            if(m === '<') return '&lt;';
+            if(m === '>') return '&gt;';
+            return m;
+        }).replace(/[\uD800-\uDBFF][\uDC00-\uDFFF]/g, function(c) {
+            return c;
+        });
+    }
+
+    // 侧边栏控制
+    function openCart() {
+        cartSidebar.classList.add('open');
+        cartOverlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        renderCartUI();   // 打开时刷新防止数据不同步
+    }
+    function closeCart() {
+        cartSidebar.classList.remove('open');
+        cartOverlay.classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    // 结算模拟
+    function checkoutAction() {
+        if(cart.length === 0) {
+            showTemporaryToast("🛒 购物车还是空的，先逛逛吧~");
+            return;
+        }
+        const total = computeTotal();
+        showTemporaryToast(`🎉 感谢选购！订单总金额 ¥${total}，演示模式结算成功。`);
+        // 清空购物车
+        cart = [];
+        renderCartUI();
+        updateCartCount();
+        saveCartToLocal();
+        closeCart();
+    }
+
+    // 绑定全局事件与初始化
+    function initEvents() {
+        openCartIcon.addEventListener('click', openCart);
+        closeCartBtn.addEventListener('click', closeCart);
+        cartOverlay.addEventListener('click', closeCart);
+        checkoutBtn.addEventListener('click', checkoutAction);
+        // 按ESC关闭
+        document.addEventListener('keydown', (e) => {
+            if(e.key === 'Escape' && cartSidebar.classList.contains('open')) {
+                closeCart();
             }
         });
-    </script>
+    }
+
+    // 页面启动
+    function init() {
+        renderProducts();
+        loadCartFromLocal();   // 加载购物车 & 渲染UI & 更新数量
+        initEvents();
+    }
+
+    init();
+</script>
 </body>
 </html>
